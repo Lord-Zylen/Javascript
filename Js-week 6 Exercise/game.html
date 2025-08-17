@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Higher or Lower Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Higher or Lower Game</h1>
+  <p>Guess the number between 1 and 100!</p>
+
+  <input type="number" id="guessInput" placeholder="Enter your guess" />
+  <button onclick="checkGuess()">Guess</button>
+  <button onclick="resetGame()">Restart</button>
+
+  <div id="message"></div>
+
+  <script>
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+      const guess = Number(document.getElementById('guessInput').value);
+      const message = document.getElementById('message');
+      attempts++;
+
+      if (!guess || guess < 1 || guess > 100) {
+        message.textContent = "Please enter a number between 1 and 100.";
+        return;
+      }
+
+      if (guess === randomNumber) {
+        message.textContent = `🎉 Correct! The number was ${randomNumber}. You guessed it in ${attempts} tries.`;
+      } else if (guess < randomNumber) {
+        message.textContent = "Too low! Try a higher number.";
+      } else {
+        message.textContent = "Too high! Try a lower number.";
+      }
+    }
+
+    function resetGame() {
+      randomNumber = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      document.getElementById('message').textContent = "";
+      document.getElementById('guessInput').value = "";
+    }
+  </script>
+</body>
+</html>

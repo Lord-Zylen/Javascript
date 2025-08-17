@@ -1,0 +1,5 @@
+console.log(a+b)
+console.log(three*four)
+console.log(i/ii)
+console.log(three*two/four)
+console.log(a+b+c)

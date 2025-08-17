@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="mainHeading">Welcome to My Page</h1>
+  <p id="intro">This is the original paragraph text.</p>
+
+  <button onclick="changeHeading()">Change Heading</button>
+  <button onclick="changeParagraph()">Change Paragraph</button>
+  <button onclick="resetAll()">Reset</button>
+
+  <script>
+    // Function to change the heading text
+    function changeHeading() {
+      document.getElementById("mainHeading").textContent = "🎉 Heading Changed!";
+    }
+
+    // Function to change the paragraph text
+    function changeParagraph() {
+      document.getElementById("intro").textContent = "The paragraph text has been updated using DOM!";
+    }
+
+    // Function to reset everything back
+    function resetAll() {
+      document.getElementById("mainHeading").textContent = "Welcome to My Page";
+      document.getElementById("intro").textContent = "This is the original paragraph text.";
+    }
+  </script>
+</body>
+</html>
